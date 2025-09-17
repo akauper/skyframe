@@ -1,0 +1,49 @@
+[project]
+name = "skyframe"
+version = "0.1.0"
+description = "A lightweight, personal LLM orchestration framework for building AI-powered applications."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.12"
+authors = [{name = "Adam Kauper", email = "akauper@gmail.com"}]
+
+dependencies = [
+    "aiohttp>=3.12.15",
+    "anthropic>=0.67.0",
+    "devtools>=0.12.2",
+    "elevenlabs>=2.15.0",
+    "ffmpeg-python>=0.2.0",
+    "jinja2>=3.1.6",
+    "numpy>=2.3.3",
+    "openai>=1.107.3",
+    "pydantic>=2.11.9",
+    "pydantic-settings>=2.10.1",
+    "pyyaml>=6.0.2",
+    "tiktoken>=0.11.0",
+    "torch>=2.8.0",
+    "transformers>=4.56.1",
+]
+
+[dependency-groups]
+dev = [
+    "devtools>=0.12.2",
+    "pytest>=8.4.2",
+    "pytest-asyncio>=1.2.0",
+    "ruff>=0.13.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["skyframe"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = ["-v", "--tb=short"]

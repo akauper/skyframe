@@ -1,0 +1,2 @@
+from .base import BaseSpeechToTextGenerationService
+from .get import get_speech_to_text_generation_service
